@@ -9,6 +9,7 @@ function link(type: string, key: string, tier: string) {
 
 export default function Catalog() {
   const [tier, setTier] = useState('1')
+  const tierInfo = catalog.tiers.find((t) => t.id === tier)
   return (
     <>
       <div className="grid g4 roles">
@@ -41,9 +42,10 @@ export default function Catalog() {
         {catalog.sovereign.map((b) => (
           <div className="card" key={b.key}>
             <h3>{b.name}</h3>
-            <div className="price">{b.price}<small> /mo</small></div>
+            <div className="price">{b.prices[tier]}<small> /mo</small></div>
+            <div className="tiernote">Tier {tier} · {tierInfo?.storage}</div>
             <p className="desc">{b.desc}</p>
-            <a className="btn btn-solid btn-sm choose" href={link('sovereign', b.key, tier)}>Choose \u2192</a>
+            <a className="btn btn-solid btn-sm choose" href={link('sovereign', b.key, tier)}>Choose →</a>
           </div>
         ))}
       </div>
@@ -56,15 +58,16 @@ export default function Catalog() {
         {catalog.micro.map((b) => (
           <div className="card" key={b.key}>
             <h3>{b.name}</h3>
-            <div className="price">{b.price}<small> /mo</small></div>
+            <div className="price">{b.prices[tier]}<small> /mo</small></div>
+            <div className="tiernote">Tier {tier} · {tierInfo?.storage}</div>
             <p className="desc">{b.desc}</p>
-            <a className="btn btn-solid btn-sm choose" href={link('micro', b.key, tier)}>Choose \u2192</a>
+            <a className="btn btn-solid btn-sm choose" href={link('micro', b.key, tier)}>Choose →</a>
           </div>
         ))}
       </div>
 
       <p className="foot" style={{ marginTop: 34, color: 'var(--muted)', fontSize: '.8rem', textAlign: 'center' }}>
-        Checkout runs on the live wopr.systems Stripe flow \u00b7 VPS hosting billed by the provider, no WOPR markup.
+        Checkout runs on the live wopr.systems Stripe flow · VPS hosting billed by the provider, no WOPR markup.
       </p>
     </>
   )

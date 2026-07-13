@@ -66,6 +66,7 @@ nav.top a:hover{color:var(--green)}
 .card .price{font-size:1.5rem;color:var(--white);margin:8px 0 2px;letter-spacing:.02em}
 .card .price small{font-size:.72rem;color:var(--muted);letter-spacing:.08em}
 .card .desc{color:var(--text-2);font-size:.9rem;flex:1;margin-top:8px;line-height:1.6}
+.card .tiernote{color:var(--muted);font-size:.72rem;letter-spacing:.06em;margin:2px 0 2px}
 .card .choose{margin-top:16px}
 .feat h3{color:var(--white)}
 .feat .ico{font-size:1.5rem;color:var(--green);margin-bottom:8px}

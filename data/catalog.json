@@ -47,43 +47,78 @@
       "key": "starter",
       "name": "Starter",
       "price": "$24.99",
-      "desc": "Drive, calendar, notes, tasks, passwords \u2014 the essentials to ditch Big Tech"
+      "desc": "Drive, calendar, notes, tasks, passwords \u2014 the essentials to ditch Big Tech",
+      "prices": {
+        "1": "$24.99",
+        "2": "$39.99",
+        "3": "$54.99"
+      }
     },
     {
       "key": "creator",
       "name": "Creator",
       "price": "$44.99",
-      "desc": "Blog, portfolio, online store, newsletter \u2014 monetize your work"
+      "desc": "Blog, portfolio, online store, newsletter \u2014 monetize your work",
+      "prices": {
+        "1": "$44.99",
+        "2": "$69.99",
+        "3": "$114.99"
+      }
     },
     {
       "key": "developer",
       "name": "Developer",
       "price": "$44.99",
-      "desc": "Git hosting, CI/CD, code editor, Reactor AI coding assistant"
+      "desc": "Git hosting, CI/CD, code editor, Reactor AI coding assistant",
+      "prices": {
+        "1": "$44.99",
+        "2": "$69.99",
+        "3": "$114.99"
+      }
     },
     {
       "key": "professional",
       "name": "Professional",
       "price": "$74.99",
-      "desc": "Creator + Developer combined + DEFCON ONE security gateway"
+      "desc": "Creator + Developer combined + DEFCON ONE security gateway",
+      "prices": {
+        "1": "$74.99",
+        "2": "$109.99",
+        "3": "$168.99"
+      }
     },
     {
       "key": "family",
       "name": "Family",
       "price": "$54.99",
-      "desc": "6 user accounts, shared photos, shared passwords, family calendar"
+      "desc": "6 user accounts, shared photos, shared passwords, family calendar",
+      "prices": {
+        "1": "$54.99",
+        "2": "$79.99",
+        "3": "$114.99"
+      }
     },
     {
       "key": "smallbusiness",
       "name": "Small Business",
       "price": "$104.99",
-      "desc": "CRM, team chat, office suite, DEFCON ONE + Reactor AI"
+      "desc": "CRM, team chat, office suite, DEFCON ONE + Reactor AI",
+      "prices": {
+        "1": "$104.99",
+        "2": "$163.99",
+        "3": "$218.99"
+      }
     },
     {
       "key": "enterprise",
       "name": "Enterprise",
-      "price": "$249.99",
-      "desc": "Unlimited users, custom integrations, dedicated support, full AI suite"
+      "price": "$208.99",
+      "desc": "Unlimited users, custom integrations, dedicated support, full AI suite",
+      "prices": {
+        "1": "$208.99",
+        "2": "$313.99",
+        "3": "$518.99"
+      }
     }
   ],
   "micro": [
@@ -91,97 +126,177 @@
       "key": "meeting_room",
       "name": "Meeting Room",
       "price": "$24.99",
-      "desc": "Video calls, scheduling, collaborative notes \u2014 replace Zoom"
+      "desc": "Video calls, scheduling, collaborative notes \u2014 replace Zoom",
+      "prices": {
+        "1": "$24.99",
+        "2": "$39.99",
+        "3": "$54.99"
+      }
     },
     {
       "key": "privacy_pack",
       "name": "Privacy Pack",
       "price": "$24.99",
-      "desc": "Encrypted storage, password manager, private VPN \u2014 total privacy"
+      "desc": "Encrypted storage, password manager, private VPN \u2014 total privacy",
+      "prices": {
+        "1": "$24.99",
+        "2": "$39.99",
+        "3": "$54.99"
+      }
     },
     {
       "key": "writer_studio",
       "name": "Writer's Studio",
       "price": "$28.99",
-      "desc": "Blog, newsletter, research archive, bookmarks \u2014 replace Substack"
+      "desc": "Blog, newsletter, research archive, bookmarks \u2014 replace Substack",
+      "prices": {
+        "1": "$28.99",
+        "2": "$43.99",
+        "3": "$64.99"
+      }
     },
     {
       "key": "artist_storefront",
       "name": "Artist Storefront",
       "price": "$28.99",
-      "desc": "Online store, portfolio, photo galleries \u2014 replace Etsy"
+      "desc": "Online store, portfolio, photo galleries \u2014 replace Etsy",
+      "prices": {
+        "1": "$28.99",
+        "2": "$43.99",
+        "3": "$64.99"
+      }
     },
     {
       "key": "podcaster",
       "name": "Podcaster Pack",
       "price": "$34.99",
-      "desc": "Podcast hosting, show notes blog, listener analytics \u2014 own your feed"
+      "desc": "Podcast hosting, show notes blog, listener analytics \u2014 own your feed",
+      "prices": {
+        "1": "$34.99",
+        "2": "$49.99",
+        "3": "$74.99"
+      }
     },
     {
       "key": "freelancer",
       "name": "Freelancer Essentials",
       "price": "$34.99",
-      "desc": "Invoicing, scheduling, client contacts \u2014 run your business"
+      "desc": "Invoicing, scheduling, client contacts \u2014 run your business",
+      "prices": {
+        "1": "$34.99",
+        "2": "$49.99",
+        "3": "$74.99"
+      }
     },
     {
       "key": "musician",
       "name": "Musician Bundle",
       "price": "$34.99",
-      "desc": "Music streaming, artist website, merch store \u2014 own your music"
+      "desc": "Music streaming, artist website, merch store \u2014 own your music",
+      "prices": {
+        "1": "$34.99",
+        "2": "$49.99",
+        "3": "$74.99"
+      }
     },
     {
       "key": "family_hub",
       "name": "Family Hub",
       "price": "$38.99",
-      "desc": "Shared drive, photos, passwords for 6 family members"
+      "desc": "Shared drive, photos, passwords for 6 family members",
+      "prices": {
+        "1": "$38.99",
+        "2": "$59.99",
+        "3": "$84.99"
+      }
     },
     {
       "key": "photographer",
       "name": "Photographer Pro",
       "price": "$38.99",
-      "desc": "Photo library, client galleries, portfolio, print sales"
+      "desc": "Photo library, client galleries, portfolio, print sales",
+      "prices": {
+        "1": "$38.99",
+        "2": "$59.99",
+        "3": "$84.99"
+      }
     },
     {
       "key": "bookkeeper",
       "name": "Bookkeeper Bundle",
       "price": "$38.99",
-      "desc": "Document scanner, client portal, secure messaging"
+      "desc": "Document scanner, client portal, secure messaging",
+      "prices": {
+        "1": "$38.99",
+        "2": "$59.99",
+        "3": "$84.99"
+      }
     },
     {
       "key": "video_creator",
       "name": "Video Creator",
       "price": "$44.99",
-      "desc": "Video hosting, community blog, paid memberships \u2014 replace YouTube"
+      "desc": "Video hosting, community blog, paid memberships \u2014 replace YouTube",
+      "prices": {
+        "1": "$44.99",
+        "2": "$69.99",
+        "3": "$114.99"
+      }
     },
     {
       "key": "contractor",
       "name": "Contractor Pro",
       "price": "$44.99",
-      "desc": "Digital contracts, project management, time tracking"
+      "desc": "Digital contracts, project management, time tracking",
+      "prices": {
+        "1": "$44.99",
+        "2": "$69.99",
+        "3": "$114.99"
+      }
     },
     {
       "key": "realtor",
       "name": "Real Estate Agent",
       "price": "$44.99",
-      "desc": "Lead CRM, listing photos, digital contracts"
+      "desc": "Lead CRM, listing photos, digital contracts",
+      "prices": {
+        "1": "$44.99",
+        "2": "$69.99",
+        "3": "$114.99"
+      }
     },
     {
       "key": "educator",
       "name": "Educator Suite",
       "price": "$44.99",
-      "desc": "Virtual classroom, whiteboard, file sharing for students"
+      "desc": "Virtual classroom, whiteboard, file sharing for students",
+      "prices": {
+        "1": "$44.99",
+        "2": "$69.99",
+        "3": "$114.99"
+      }
     },
     {
       "key": "therapist",
       "name": "Therapist/Coach",
       "price": "$54.99",
-      "desc": "Secure video sessions, encrypted notes, client portal \u2014 HIPAA-ready"
+      "desc": "Secure video sessions, encrypted notes, client portal \u2014 HIPAA-ready",
+      "prices": {
+        "1": "$54.99",
+        "2": "$79.99",
+        "3": "$144.99"
+      }
     },
     {
       "key": "legal",
       "name": "Legal Lite",
       "price": "$54.99",
-      "desc": "Document management, e-signatures, secure client portal"
+      "desc": "Document management, e-signatures, secure client portal",
+      "prices": {
+        "1": "$54.99",
+        "2": "$79.99",
+        "3": "$144.99"
+      }
     }
   ]
 }
