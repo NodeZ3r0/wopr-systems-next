@@ -1,15 +1,14 @@
 'use client'
 import { useState } from 'react'
-import catalog from '@/data/catalog.json'
 
 const CO = 'https://wopr.systems/checkout'
 function link(type: string, key: string, tier: string) {
   return `${CO}?tier=${tier}&bundle=${type}-${key}`
 }
 
-export default function Catalog() {
+export default function Catalog({ catalog }: { catalog: any }) {
   const [tier, setTier] = useState('1')
-  const tierInfo = catalog.tiers.find((t) => t.id === tier)
+  const tierInfo = catalog.tiers.find((t: any) => t.id === tier)
   return (
     <>
       <div className="grid g4 roles">
