@@ -7,9 +7,9 @@ const mono = JetBrains_Mono({ subsets: ['latin'], weight: ['400', '500', '700'],
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://wopr.systems'),
-  title: { default: 'WOPR.SYSTEMS \u2014 Secure Socially Democratic Distributed Mesh Network', template: '%s \u00b7 WOPR.SYSTEMS' },
-  description: 'A secure, socially democratic, distributed mesh network \u2014 an open platform for the people. Own your data. Own your rules.',
-  openGraph: { type: 'website', siteName: 'WOPR.SYSTEMS', title: 'WOPR.SYSTEMS', description: 'Secure Socially Democratic Distributed Mesh Network \u2014 an open platform for the people.' },
+  title: { default: 'WOPR.SYSTEMS — Secure Socially Democratic Distributed Mesh Network', template: '%s · WOPR.SYSTEMS' },
+  description: 'A secure, socially democratic, distributed mesh network — an open platform for the people. Own your data. Own your rules.',
+  openGraph: { type: 'website', siteName: 'WOPR.SYSTEMS', title: 'WOPR.SYSTEMS', description: 'Secure Socially Democratic Distributed Mesh Network — an open platform for the people.' },
   robots: { index: false },
 }
 
@@ -42,7 +42,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <a href="https://wopr.foundation">The Foundation</a>
             <a href="https://dashboard.wopr.systems">Dashboard</a>
           </div>
-          <p className="note">WOPR Systems \u00b7 Secure Socially Democratic Distributed Mesh Network. Your data. Your rules. VPS hosting is billed by the provider with no WOPR markup.</p>
+          <p className="note">WOPR Systems · Secure Socially Democratic Distributed Mesh Network. Your data. Your rules. VPS hosting is billed by the provider with no WOPR markup.</p>
         </div></footer>
       </body>
     </html>
