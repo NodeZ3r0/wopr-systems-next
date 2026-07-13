@@ -93,3 +93,19 @@ footer{border-top:1px solid var(--line);background:var(--bg-2);padding-block:44p
 @media(max-width:900px){.g4{grid-template-columns:1fr 1fr}.g3{grid-template-columns:1fr 1fr}nav.top{display:none}}
 @media(max-width:600px){.g4,.g3{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* --- VPS host picker --- */
+.vpsbar{margin-top:4px}
+.vpscard{background:var(--panel);border:1px solid var(--line-2);border-radius:var(--r);padding:15px 14px;text-align:left;cursor:pointer;font-family:var(--mono);color:var(--text);transition:.15s;display:flex;flex-direction:column;gap:4px}
+.vpscard:hover:not(.off){border-color:var(--green)}
+.vpscard.on{border-color:var(--green);box-shadow:0 0 14px rgba(0,255,65,.22);background:rgba(0,255,65,.06)}
+.vpscard.off{opacity:.38;cursor:not-allowed}
+.vpscard .vpsname{font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.04em;font-size:.9rem}
+.vpscard .vpsspecs{color:var(--text-2);font-size:.72rem}
+.vpscard .vpsprice{color:var(--white);font-size:1.15rem;margin-top:2px}
+.vpscard .vpsprice small{color:var(--muted);font-size:.64rem}
+.vpscard .vpsfloor{color:var(--amber);font-size:.64rem;letter-spacing:.03em}
+.card .vline{color:var(--text-2);font-size:.8rem;margin-top:2px}
+.card .vline span{color:var(--muted)}
+.card .total{color:var(--green);font-weight:700;font-size:1.25rem;margin-top:6px}
+.card .total small{color:var(--muted);font-size:.64rem;font-weight:400;letter-spacing:.06em}
