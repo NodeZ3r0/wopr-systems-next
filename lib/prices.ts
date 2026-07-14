@@ -4,10 +4,10 @@ import catalog from '@/data/catalog.json'
 const API = process.env.PRICES_API || 'https://wopr.systems/api/prices'
 
 const STATIC_VPS: any[] = [
-  { key: 'contabo-vps-s', plan_name: 'VPS S SSD', cpu: 4, ram_gb: 8, disk_gb: 200, amount_cents: 597, price_display: '$5.97', amount_cents_yearly: 7644, price_display_yearly: '$76.44' },
-  { key: 'contabo-vps-m', plan_name: 'VPS M SSD', cpu: 6, ram_gb: 16, disk_gb: 400, amount_cents: 1076, price_display: '$10.76', amount_cents_yearly: 13771, price_display_yearly: '$137.71' },
-  { key: 'contabo-vps-l', plan_name: 'VPS L SSD', cpu: 8, ram_gb: 30, disk_gb: 800, amount_cents: 1794, price_display: '$17.94', amount_cents_yearly: 22962, price_display_yearly: '$229.62' },
-  { key: 'contabo-vps-xl', plan_name: 'VPS XL SSD', cpu: 10, ram_gb: 60, disk_gb: 1600, amount_cents: 3230, price_display: '$32.30', amount_cents_yearly: 41343, price_display_yearly: '$413.43' },
+  { key: 'contabo-vps-s', plan_name: 'VPS S SSD', cpu: 4, ram_gb: 8, disk_gb: 200, amount_cents: 499, price_display: '$4.99', amount_cents_yearly: 5988, price_display_yearly: '$59.88' },
+  { key: 'contabo-vps-m', plan_name: 'VPS M SSD', cpu: 6, ram_gb: 16, disk_gb: 400, amount_cents: 899, price_display: '$8.99', amount_cents_yearly: 10788, price_display_yearly: '$107.88' },
+  { key: 'contabo-vps-l', plan_name: 'VPS L SSD', cpu: 8, ram_gb: 30, disk_gb: 800, amount_cents: 1499, price_display: '$14.99', amount_cents_yearly: 17988, price_display_yearly: '$179.88' },
+  { key: 'contabo-vps-xl', plan_name: 'VPS XL SSD', cpu: 10, ram_gb: 60, disk_gb: 1600, amount_cents: 2699, price_display: '$26.99', amount_cents_yearly: 32388, price_display_yearly: '$323.88' },
 ]
 
 function fmt(cents: number | null | undefined): string | null {
