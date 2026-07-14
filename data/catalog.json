@@ -123,6 +123,17 @@
   ],
   "micro": [
     {
+      "key": "personal_productivity",
+      "name": "Personal Productivity",
+      "price": "$24.99",
+      "desc": "Task management, notes, and personal organization tools.",
+      "prices": {
+        "1": "$24.99",
+        "2": "$39.99",
+        "3": "$54.99"
+      }
+    },
+    {
       "key": "meeting_room",
       "name": "Meeting Room",
       "price": "$24.99",
