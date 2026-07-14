@@ -109,3 +109,13 @@ footer{border-top:1px solid var(--line);background:var(--bg-2);padding-block:44p
 .card .vline span{color:var(--muted)}
 .card .total{color:var(--green);font-weight:700;font-size:1.25rem;margin-top:6px}
 .card .total small{color:var(--muted);font-size:.64rem;font-weight:400;letter-spacing:.06em}
+
+/* --- period (monthly/yearly) toggle — featured incentive --- */
+.periodbar{display:flex;justify-content:center;margin:0 auto 30px;max-width:520px;border:1px solid var(--line-2);border-radius:999px;overflow:hidden;background:var(--panel)}
+.perbtn{flex:1;background:transparent;border:0;color:var(--text-2);font-family:var(--mono);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:.85rem;padding:.85em 1em;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:.6em;transition:.15s}
+.perbtn:hover{color:var(--green)}
+.perbtn.on{background:var(--green);color:#06120a}
+.perbtn.yr.on{box-shadow:inset 0 0 22px rgba(0,255,65,.4)}
+.perbtn .freetag{font-size:.6rem;letter-spacing:.1em;padding:.25em .55em;border-radius:999px;background:var(--amber);color:#1a1200;font-weight:800;white-space:nowrap}
+.perbtn.on .freetag{background:#06120a;color:var(--green-2)}
+.card .save{color:var(--amber);font-weight:700;font-size:.78rem;letter-spacing:.02em;margin-top:2px}

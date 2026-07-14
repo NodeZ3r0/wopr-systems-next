@@ -4,51 +4,68 @@ import { useState } from 'react'
 const CO = 'https://wopr.systems/checkout'
 const TIER_FLOOR: any = { '1': 50, '2': 200, '3': 500 }
 
-function link(type: string, key: string, tier: string, vps: string) {
-  return `${CO}?tier=${tier}&bundle=${type}-${key}` + (vps ? `&vps_plan=${vps}` : '')
+function link(type: string, key: string, tier: string, vps: string, period: string) {
+  let u = `${CO}?tier=${tier}&bundle=${type}-${key}`
+  if (vps) u += `&vps_plan=${vps}`
+  if (period === 'yearly') u += `&period=yearly`
+  return u
 }
-function toCents(d: string) {
+function toCents(d: any) {
   const n = parseFloat(String(d).replace(/[^0-9.]/g, ''))
   return Number.isNaN(n) ? 0 : Math.round(n * 100)
 }
 function money(c: number) {
-  return '$' + (c / 100).toFixed(2)
+  return '$' + (c / 100).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
 }
 
 export default function Catalog({ catalog }: { catalog: any }) {
   const [tier, setTier] = useState('1')
   const [vpsKey, setVpsKey] = useState('')
+  const [period, setPeriod] = useState('monthly')
+  const yearly = period === 'yearly'
+  const per = yearly ? '/yr' : '/mo'
   const tierInfo = catalog.tiers.find((t: any) => t.id === tier)
   const vpsList: any[] = catalog.vps || []
   const floor = TIER_FLOOR[tier] || 0
   const qualifies = (v: any) => v.disk_gb >= floor
-  const firstOk = vpsList.find(qualifies) || null // fail closed: never emit a sub-floor VPS
+  const firstOk = vpsList.find(qualifies) || null
   const selected = vpsList.find((v: any) => v.key === vpsKey)
   const effVps = selected && qualifies(selected) ? selected : firstOk
   const effKey = effVps ? effVps.key : ''
-  const vpsCents = effVps ? effVps.amount_cents : 0
+  const vpsCents = effVps ? (yearly ? effVps.amount_cents_yearly || 0 : effVps.amount_cents) : 0
 
   const bcard = (b: any, type: string) => {
-    const total = toCents(b.prices[tier]) + vpsCents
+    const bundleDisplay = yearly ? (b.prices_yearly ? b.prices_yearly[tier] : b.prices[tier]) : b.prices[tier]
+    const bundleCents = toCents(bundleDisplay)
+    const savings = yearly ? toCents(b.prices[tier]) * 2 : 0
+    const total = bundleCents + vpsCents
     return (
       <div className="card" key={b.key}>
         <h3>{b.name}</h3>
-        <div className="price">{b.prices[tier]}<small> /mo</small></div>
+        <div className="price">{bundleDisplay}<small> {per}</small></div>
         <div className="tiernote">Tier {tier} · {tierInfo?.storage}</div>
+        {yearly && savings > 0 ? <div className="save">★ 2 months free — save {money(savings)}/yr</div> : null}
         {effVps ? (
-          <div className="vline">+ {effVps.price_display} <span>VPS · {effVps.plan_name}, at cost</span></div>
+          <div className="vline">+ {yearly ? effVps.price_display_yearly : effVps.price_display} <span>VPS · {effVps.plan_name}, at cost</span></div>
         ) : null}
         {effVps ? (
-          <div className="total">{money(total)}<small> /mo all-in</small></div>
+          <div className="total">{money(total)}<small> {per} all-in</small></div>
         ) : null}
         <p className="desc">{b.desc}</p>
-        <a className="btn btn-solid btn-sm choose" href={link(type, b.key, tier, effKey)}>Choose →</a>
+        <a className="btn btn-solid btn-sm choose" href={link(type, b.key, tier, effKey, period)}>Choose →</a>
       </div>
     )
   }
 
   return (
     <>
+      <div className="periodbar">
+        <button className={'perbtn' + (!yearly ? ' on' : '')} onClick={() => setPeriod('monthly')}>Monthly</button>
+        <button className={'perbtn yr' + (yearly ? ' on' : '')} onClick={() => setPeriod('yearly')}>
+          Yearly<span className="freetag">2 MONTHS FREE</span>
+        </button>
+      </div>
+
       <div className="grid g4 roles">
         {catalog.roles.map((r: any) => (
           <div className="card role" key={r.key}>
@@ -90,7 +107,7 @@ export default function Catalog({ catalog }: { catalog: any }) {
                 >
                   <div className="vpsname">{v.plan_name}</div>
                   <div className="vpsspecs">{v.cpu} vCPU · {v.ram_gb} GB RAM · {v.disk_gb} GB SSD</div>
-                  <div className="vpsprice">{v.price_display}<small> /mo</small></div>
+                  <div className="vpsprice">{yearly ? v.price_display_yearly : v.price_display}<small> {per}</small></div>
                   {!ok ? <div className="vpsfloor">needs ≥ {floor} GB for this tier</div> : null}
                 </button>
               )
@@ -112,7 +129,7 @@ export default function Catalog({ catalog }: { catalog: any }) {
       <div className="grid g3">{catalog.micro.map((b: any) => bcard(b, 'micro'))}</div>
 
       <p className="foot" style={{ marginTop: 34, color: 'var(--muted)', fontSize: '.8rem', textAlign: 'center' }}>
-        Bundle + VPS bill on one Stripe subscription · the VPS line is Contabo at cost, no WOPR markup.
+        Bundle + VPS bill on one Stripe subscription · the VPS line is Contabo at cost, no WOPR markup{yearly ? ' · yearly = 2 months free on the bundle; hosting is full-year at cost' : ''}.
       </p>
     </>
   )
