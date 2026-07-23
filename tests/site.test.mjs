@@ -54,3 +54,10 @@ test('tier selection is server-backed and progressively enhanced', () => {
   assert.match(catalog, /window\.history\.replaceState/)
   assert.match(catalog, /tier=t\$\{id\}/)
 })
+
+test('pricing is all-in and cannot add a separate VPS charge', () => {
+  assert.match(catalog, /Managed hosting included/)
+  assert.match(catalog, /One price\. No hosting surcharge\./)
+  assert.doesNotMatch(catalog, /vps_plan|VPS host|bundleCents \+ vpsCents/)
+  assert.doesNotMatch(read('../lib/prices.ts'), /STATIC_VPS|live\.vps/)
+})

@@ -27,13 +27,13 @@
       "key": "sovereign",
       "name": "Sovereign Suite",
       "price": "from $24.99/mo",
-      "desc": "Complete bundles for individuals, creators, developers, and businesses"
+      "desc": "All-in managed bundles for individuals, creators, developers, and businesses"
     },
     {
       "key": "micro",
-      "name": "Micro-Bundles",
+      "name": "Specialty Bundles",
       "price": "from $24.99/mo",
-      "desc": "Niche-specific packages for creators, freelancers, and professionals"
+      "desc": "All-in specialty packages for creators, freelancers, and professionals"
     },
     {
       "key": "beacon",
