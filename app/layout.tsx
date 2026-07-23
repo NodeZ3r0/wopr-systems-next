@@ -1,49 +1,86 @@
-import type { Metadata } from 'next'
-import { JetBrains_Mono } from 'next/font/google'
+import type { Metadata, Viewport } from 'next'
 import Link from 'next/link'
+import SiteHeader from '@/components/SiteHeader'
+import { allowIndexing, siteUrl } from '@/lib/site'
 import './globals.css'
 
-const mono = JetBrains_Mono({ subsets: ['latin'], weight: ['400', '500', '700'], variable: '--font-mono', display: 'swap' })
-
-export const metadata: Metadata = {
-  metadataBase: new URL('https://wopr.systems'),
-  title: { default: 'WOPR.SYSTEMS — Secure Socially Democratic Distributed Mesh Network', template: '%s · WOPR.SYSTEMS' },
-  description: 'A secure, socially democratic, distributed mesh network — an open platform for the people. Own your data. Own your rules.',
-  openGraph: { type: 'website', siteName: 'WOPR.SYSTEMS', title: 'WOPR.SYSTEMS', description: 'Secure Socially Democratic Distributed Mesh Network — an open platform for the people.' },
-  robots: { index: false },
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#080b08',
+  colorScheme: 'dark',
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: 'WOPR Systems | Private Cloud and Managed Sovereign Infrastructure',
+    template: '%s | WOPR Systems',
+  },
+  description:
+    'Private cloud, managed sovereign infrastructure, encrypted communications, and local AI for individuals, creators, teams, and communities.',
+  applicationName: 'WOPR Systems',
+  alternates: { canonical: '/' },
+  robots: {
+    index: allowIndexing,
+    follow: allowIndexing,
+    googleBot: { index: allowIndexing, follow: allowIndexing },
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: '/',
+    siteName: 'WOPR Systems',
+    title: 'WOPR Systems | Private Cloud and Managed Sovereign Infrastructure',
+    description:
+      'Own your data and infrastructure without having to operate every service yourself.',
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'WOPR Systems' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'WOPR Systems | Private Cloud and Managed Sovereign Infrastructure',
+    description:
+      'Own your data and infrastructure without having to operate every service yourself.',
+    images: ['/opengraph-image'],
+  },
+  category: 'technology',
+}
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={mono.variable}>
+    <html lang="en">
       <body>
-        <header className="bar"><div className="wrap bar-in">
-          <Link className="brand" href="/">WOPR<b>.SYSTEMS</b></Link>
-          <span className="status"><span className="dot" />Network Online</span>
-          <nav className="top">
-        <a href="https://wopr.systems/why">WHY WOPR</a>
-        <a href="https://wopr.systems/theory">THEORY</a>
-        <a href="https://wopr.systems/constitution">CONSTITUTION</a>
-        <a href="https://wopr.systems/duty">DECLARATION</a>
-        <a href="https://wopr.systems/allies">ALLIES</a>
-        <a href="https://folkmoot.app">FOLKMOOT</a>
-        <a href="https://powerforthepeople.party">PFTP</a>
-        <a href="/join">JOIN</a>
-            <a href="https://auth.wopr.systems">LOGIN</a>
-          </nav>
-        </div></header>
-        {children}
-        <footer><div className="wrap foot">
-          <div className="links">
-            <a href="https://wopr.systems/why">Why WOPR</a>
-            <a href="https://wopr.systems/constitution">Constitution</a>
-            <a href="https://folkmoot.app">Folkmoot</a>
-            <a href="https://powerforthepeople.party">PFTP</a>
-            <a href="https://wopr.foundation">The Foundation</a>
-            <a href="https://dashboard.wopr.systems">Dashboard</a>
+        <a className="skip-link" href="#main-content">Skip to main content</a>
+        <SiteHeader />
+        <main id="main-content">{children}</main>
+        <footer>
+          <div className="wrap footer-grid">
+            <div>
+              <Link className="brand footer-brand" href="/">WOPR<b>.SYSTEMS</b></Link>
+              <p className="note">
+                Managed private infrastructure for people and organizations that want
+                control without becoming full-time system administrators.
+              </p>
+            </div>
+            <nav className="footer-links" aria-label="WOPR Systems">
+              <Link href="/why">Why WOPR</Link>
+              <Link href="/#platform">Platform</Link>
+              <Link href="/join">Pricing</Link>
+              <Link href="/#impact">Revenue &amp; impact</Link>
+              <a href="https://nodez3r0.wopr.systems">Network portal</a>
+              <a href="https://auth.wopr.systems">Login</a>
+            </nav>
+            <nav className="footer-links" aria-label="Related organizations">
+              <a href="https://wopr.foundation">WOPR Foundation</a>
+              <a href="https://folkmoot.app">Folkmoot</a>
+              <a href="https://project2032.us">Project 2032</a>
+            </nav>
           </div>
-          <p className="note">WOPR Systems · Secure Socially Democratic Distributed Mesh Network. Your data. Your rules. VPS hosting is billed by the provider with no WOPR markup.</p>
-        </div></footer>
+          <div className="wrap legal-note">
+            WOPR Systems LLC and the WOPR Foundation are separate legal organizations.
+            VPS hosting is billed at provider cost with no WOPR markup.
+          </div>
+        </footer>
       </body>
     </html>
   )

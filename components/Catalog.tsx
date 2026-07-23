@@ -5,8 +5,8 @@ const CO = 'https://wopr.systems/checkout'
 const TIER_FLOOR: any = { '1': 50, '2': 200, '3': 500 }
 
 function link(type: string, key: string, tier: string, vps: string, period: string) {
-  let u = `${CO}?tier=${tier}&bundle=${type}-${key}`
-  if (vps) u += `&vps_plan=${vps}`
+  let u = `${CO}?tier=t${tier}&bundle=${type}-${key}`
+  if (vps) u += `&provider=contabo&vps_plan=${vps}`
   if (period === 'yearly') u += `&period=yearly`
   return u
 }
@@ -57,11 +57,18 @@ export default function Catalog({ catalog }: { catalog: any }) {
     )
   }
 
+  const roleLink = (key: string) => {
+    if (key === 'free') return 'https://auth.wopr.systems'
+    if (key === 'sovereign') return '#sovereign-suites'
+    if (key === 'micro') return '#micro-bundles'
+    return 'mailto:support@wopr.systems?subject=AI%20GPU%20Beacon'
+  }
+
   return (
     <>
       <div className="periodbar">
-        <button className={'perbtn' + (!yearly ? ' on' : '')} onClick={() => setPeriod('monthly')}>Monthly</button>
-        <button className={'perbtn yr' + (yearly ? ' on' : '')} onClick={() => setPeriod('yearly')}>
+        <button type="button" aria-pressed={!yearly} className={'perbtn' + (!yearly ? ' on' : '')} onClick={() => setPeriod('monthly')}>Monthly</button>
+        <button type="button" aria-pressed={yearly} className={'perbtn yr' + (yearly ? ' on' : '')} onClick={() => setPeriod('yearly')}>
           Yearly<span className="freetag">2 MONTHS FREE</span>
         </button>
       </div>
@@ -72,17 +79,20 @@ export default function Catalog({ catalog }: { catalog: any }) {
             <span className="badge">{r.price}</span>
             <h3>{r.name}</h3>
             <p className="desc">{r.desc}</p>
+            <a className="btn btn-sm choose" href={roleLink(r.key)}>
+              {r.key === 'beacon' ? 'Contact sales' : 'Get started'}
+            </a>
           </div>
         ))}
       </div>
 
-      <div className="sec-head" style={{ marginTop: 40, marginBottom: 18 }}>
+      <div className="sec-head" id="sovereign-suites" style={{ marginTop: 40, marginBottom: 18 }}>
         <h2 className="glow" style={{ fontSize: '1.5rem' }}>Select your tier</h2>
         <p>Storage &amp; features scale with your tier.</p>
       </div>
       <div className="tierbar">
         {catalog.tiers.map((t: any) => (
-          <button key={t.id} className={'tier' + (tier === t.id ? ' on' : '')} onClick={() => setTier(t.id)}>
+          <button type="button" aria-pressed={tier === t.id} key={t.id} className={'tier' + (tier === t.id ? ' on' : '')} onClick={() => setTier(t.id)}>
             <span className="lbl">{t.label}</span>{t.storage}
           </button>
         ))}
@@ -100,8 +110,10 @@ export default function Catalog({ catalog }: { catalog: any }) {
               const on = ok && v.key === effKey
               return (
                 <button
+                  type="button"
                   key={v.key}
                   disabled={!ok}
+                  aria-pressed={on}
                   className={'vpscard' + (on ? ' on' : '') + (ok ? '' : ' off')}
                   onClick={() => ok && setVpsKey(v.key)}
                 >
@@ -116,7 +128,7 @@ export default function Catalog({ catalog }: { catalog: any }) {
         </>
       ) : null}
 
-      <div className="sec-head" style={{ marginTop: 40, marginBottom: 18 }}>
+      <div className="sec-head" id="micro-bundles" style={{ marginTop: 40, marginBottom: 18 }}>
         <h2 className="glow" style={{ fontSize: '1.5rem' }}>Sovereign Suites</h2>
         <p>Complete bundles for individuals, creators, developers, and businesses.</p>
       </div>
