@@ -81,11 +81,48 @@ try {
     await client.send('Emulation.setDeviceMetricsOverride', { width, height: 900, deviceScaleFactor: 2, mobile: true })
     for (const route of routes) {
       await client.send('Page.navigate', { url: new URL(route, baseUrl).href })
-      await sleep(500)
+      await sleep(1200)
       const result = await client.send('Runtime.evaluate', { expression, returnByValue: true })
       const audit = result.result.value
       if (audit.documentWidth > audit.viewport || audit.offenders.length || !audit.menuAvailable) {
         failures.push({ width, route, ...audit })
+      }
+      if (width === widths[0]) {
+        await client.send('Runtime.evaluate', {
+          expression: `document.querySelector('.global-button')?.click()`,
+        })
+        await sleep(200)
+        const globalResult = await client.send('Runtime.evaluate', {
+          expression: `(() => {
+            const menu = document.querySelector('#global-menu');
+            return {
+              exists: !!menu,
+              links: [...(menu?.querySelectorAll('a') || [])].map((a) => a.href),
+            };
+          })()`,
+          returnByValue: true,
+        })
+        const globalMenu = globalResult.result.value
+        if (!globalMenu.exists || globalMenu.links.length < 8) {
+          failures.push({ width, route, error: 'global navigation did not open or is incomplete', ...globalMenu })
+        }
+
+        await client.send('Runtime.evaluate', {
+          expression: `document.querySelector('.global-button')?.click(); document.querySelector('.menu-button')?.click()`,
+        })
+        const localResult = await client.send('Runtime.evaluate', {
+          expression: `(() => {
+            const menu = document.querySelector('#local-menu');
+            const labels = [...(menu?.querySelectorAll('a') || [])].map((a) => a.textContent.trim());
+            return { exists: !!menu, labels };
+          })()`,
+          returnByValue: true,
+        })
+        const localMenu = localResult.result.value
+        const forbidden = localMenu.labels.filter((label) => /constitution|declaration|theory|project 2032/i.test(label))
+        if (!localMenu.exists || !localMenu.labels.includes('Why WOPR') || !localMenu.labels.includes('WOPR Foundation') || forbidden.length) {
+          failures.push({ width, route, error: 'local navigation is incorrect', ...localMenu, forbidden })
+        }
       }
     }
   }
