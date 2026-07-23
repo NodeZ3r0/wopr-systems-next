@@ -18,8 +18,14 @@ function money(c: number) {
   return '$' + (c / 100).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
 }
 
-export default function Catalog({ catalog }: { catalog: any }) {
-  const [tier, setTier] = useState('1')
+export default function Catalog({
+  catalog,
+  initialTier,
+}: {
+  catalog: any
+  initialTier: string
+}) {
+  const [tier, setTier] = useState(initialTier)
   const [vpsKey, setVpsKey] = useState('')
   const [period, setPeriod] = useState('monthly')
   const yearly = period === 'yearly'
@@ -64,6 +70,13 @@ export default function Catalog({ catalog }: { catalog: any }) {
     return 'mailto:support@wopr.systems?subject=AI%20GPU%20Beacon'
   }
 
+  const chooseTier = (event: React.MouseEvent<HTMLButtonElement>, id: string) => {
+    event.preventDefault()
+    setTier(id)
+    setVpsKey('')
+    window.history.replaceState(null, '', `/join?tier=t${id}`)
+  }
+
   return (
     <>
       <div className="periodbar">
@@ -90,13 +103,21 @@ export default function Catalog({ catalog }: { catalog: any }) {
         <h2 className="glow" style={{ fontSize: '1.5rem' }}>Select your tier</h2>
         <p>Storage &amp; features scale with your tier.</p>
       </div>
-      <div className="tierbar">
+      <form className="tierbar" action="/join" method="get" aria-label="Storage tier">
         {catalog.tiers.map((t: any) => (
-          <button type="button" aria-pressed={tier === t.id} key={t.id} className={'tier' + (tier === t.id ? ' on' : '')} onClick={() => setTier(t.id)}>
+          <button
+            type="submit"
+            name="tier"
+            value={`t${t.id}`}
+            aria-pressed={tier === t.id}
+            key={t.id}
+            className={'tier' + (tier === t.id ? ' on' : '')}
+            onClick={(event) => chooseTier(event, t.id)}
+          >
             <span className="lbl">{t.label}</span>{t.storage}
           </button>
         ))}
-      </div>
+      </form>
 
       {vpsList.length > 0 ? (
         <>
