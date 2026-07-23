@@ -15,7 +15,15 @@ export const metadata: Metadata = {
   },
 }
 
-export default async function Join() {
+export default async function Join({
+  searchParams,
+}: {
+  searchParams: Promise<{ tier?: string }>
+}) {
+  const requestedTier = (await searchParams).tier || ''
+  const initialTier = /^[t]?[123]$/.test(requestedTier)
+    ? requestedTier.replace('t', '')
+    : '1'
   const catalog = await getPricedCatalog()
   return (
     <section className="section join-page">
@@ -25,7 +33,7 @@ export default async function Join() {
           <h1 className="glow">Choose your beacon</h1>
           <p>Compare managed service bundles, storage, and infrastructure for your private cloud.</p>
         </div>
-        <Catalog catalog={catalog} />
+        <Catalog catalog={catalog} initialTier={initialTier} />
       </div>
     </section>
   )

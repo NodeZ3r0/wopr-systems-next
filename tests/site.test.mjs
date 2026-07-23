@@ -9,6 +9,7 @@ const styles = read('../app/globals.css')
 const home = read('../app/page.tsx')
 const why = read('../app/why/page.tsx')
 const join = read('../app/join/page.tsx')
+const catalog = read('../components/Catalog.tsx')
 const nextConfig = read('../next.config.mjs')
 
 test('every public route has one semantic h1 in source', () => {
@@ -44,4 +45,12 @@ test('security policy denies framing and removes unsafe-eval', () => {
   assert.match(nextConfig, /X-Frame-Options'.*DENY/)
   assert.doesNotMatch(nextConfig, /unsafe-eval/)
   assert.doesNotMatch(nextConfig, /default-src 'self' https:/)
+})
+
+test('tier selection is server-backed and progressively enhanced', () => {
+  assert.match(join, /searchParams: Promise<\{ tier\?: string \}>/)
+  assert.match(join, /initialTier=\{initialTier\}/)
+  assert.match(catalog, /<form className="tierbar" action="\/join" method="get"/)
+  assert.match(catalog, /window\.history\.replaceState/)
+  assert.match(catalog, /tier=t\$\{id\}/)
 })
