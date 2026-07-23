@@ -1,11 +1,27 @@
 services:
   web:
-    build: .
+    build:
+      context: .
+      args:
+        SITE_URL: https://preview.wopr.systems
+        ALLOW_INDEXING: "false"
     image: wopr-systems-next:latest
     container_name: wopr-systems-next
     restart: unless-stopped
+    init: true
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 200
+    tmpfs:
+      - /tmp:size=32m,mode=1777
+      - /app/.next/cache:size=64m,uid=1001,gid=1001,mode=0750
     ports:
       - "127.0.0.1:3413:3000"
     environment:
-      - NODE_ENV=production
-      - NEXT_TELEMETRY_DISABLED=1
+      NODE_ENV: production
+      NEXT_TELEMETRY_DISABLED: "1"
+      SITE_URL: https://preview.wopr.systems
+      ALLOW_INDEXING: "false"
