@@ -18,7 +18,7 @@ const PRINCIPLES = [
   ['Privacy', 'No advertising profile, no data brokerage, and no business model built around watching what you do.'],
   ['Control', 'Your environment, identity, and data remain portable. WOPR operates the system without claiming your digital life.'],
   ['Reliability', 'Managed updates, monitoring, backups, recovery planning, and support turn self-hosting into dependable infrastructure.'],
-  ['Public benefit', 'The platform-fee allocation funds independent charity, core operations, infrastructure, and open-source work.'],
+  ['Public benefit', 'The revenue allocation funds independent charity, core operations, infrastructure, and open-source work.'],
 ]
 
 export default function WhyWopr() {
@@ -75,14 +75,14 @@ export default function WhyWopr() {
           <p>
             WOPR Systems sells and operates technology services. The WOPR Foundation is a
             separate nonprofit organization with independent charitable responsibilities.
-            Under WOPR’s published allocation model, 60% of the platform fee supports the
+            Under WOPR’s published allocation model, 60% of revenue after direct service costs supports the
             Foundation, 20% supports business operations, 10% supports network
             infrastructure, and 10% supports open-source development.
           </p>
           <p>
-            VPS hosting is billed at provider cost with no WOPR markup. A service purchase
-            is a commercial transaction, not a charitable contribution, and is not
-            represented as tax deductible.
+            Every plan has one all-in price that includes managed hosting; there is no
+            separate VPS surcharge. A service purchase is a commercial transaction, not a
+            charitable contribution, and is not represented as tax deductible.
           </p>
 
           <div className="cta prose-cta">

@@ -78,7 +78,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           </div>
           <div className="wrap legal-note">
             WOPR Systems LLC and the WOPR Foundation are separate legal organizations.
-            VPS hosting is billed at provider cost with no WOPR markup.
+            Paid plans use one all-in price with managed hosting included.
           </div>
         </footer>
       </body>

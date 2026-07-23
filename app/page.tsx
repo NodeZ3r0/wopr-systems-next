@@ -35,7 +35,7 @@ const FEATURES = [
 
 const STEPS = [
   ['Choose a bundle', 'Pick the services and storage that match your work, family, or organization.'],
-  ['Choose infrastructure', 'Run on a supported VPS at provider cost or discuss hardware you already control.'],
+  ['Pay one clear price', 'Managed infrastructure is included. There is no separate VPS charge or surprise hosting add-on.'],
   ['We operate the stack', 'WOPR deploys, secures, monitors, updates, and supports your private environment.'],
 ]
 
@@ -108,8 +108,8 @@ export default function Home() {
             <div className="mono-eyebrow">Revenue &amp; impact</div>
             <h2 className="glow">A business model that funds public benefit</h2>
             <p>
-              VPS charges pass through at provider cost. WOPR’s platform fee is allocated
-              by a published operating model.
+              Each plan has one all-in price that includes managed hosting. After direct
+              service costs, WOPR’s revenue follows a published allocation model.
             </p>
           </div>
           <div className="allocation" aria-label="Platform fee allocation">
