@@ -27,7 +27,7 @@ for (const route of routes) {
   }
 }
 
-for (const route of ['/robots.txt', '/sitemap.xml', '/opengraph-image']) {
+for (const route of ['/robots.txt', '/sitemap.xml', '/opengraph-image', '/.well-known/security.txt']) {
   const response = await fetch(`${baseUrl}${route}`)
   if (!response.ok) failures.push(`${route}: expected success, got ${response.status}`)
 }
