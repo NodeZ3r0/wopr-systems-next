@@ -50,9 +50,10 @@
       "desc": "Drive, calendar, notes, tasks, passwords \u2014 the essentials to ditch Big Tech",
       "prices": {
         "1": "$24.99",
-        "2": "$39.99",
-        "3": "$54.99"
-      }
+        "2": "$30.99",
+        "3": "$42.99"
+      },
+      "min_tier": 1
     },
     {
       "key": "creator",
@@ -61,9 +62,10 @@
       "desc": "Blog, portfolio, online store, newsletter \u2014 monetize your work",
       "prices": {
         "1": "$44.99",
-        "2": "$69.99",
-        "3": "$114.99"
-      }
+        "2": "$50.99",
+        "3": "$62.99"
+      },
+      "min_tier": 1
     },
     {
       "key": "developer",
@@ -72,20 +74,22 @@
       "desc": "Git hosting, CI/CD, code editor, Reactor AI coding assistant",
       "prices": {
         "1": "$44.99",
-        "2": "$69.99",
-        "3": "$114.99"
-      }
+        "2": "$50.99",
+        "3": "$62.99"
+      },
+      "min_tier": 1
     },
     {
       "key": "professional",
       "name": "Professional",
-      "price": "$74.99",
+      "price": "$80.99",
       "desc": "Creator + Developer combined + DEFCON ONE security gateway",
       "prices": {
         "1": "$74.99",
-        "2": "$109.99",
-        "3": "$168.99"
-      }
+        "2": "$80.99",
+        "3": "$92.99"
+      },
+      "min_tier": 2
     },
     {
       "key": "family",
@@ -94,9 +98,10 @@
       "desc": "6 user accounts, shared photos, shared passwords, family calendar",
       "prices": {
         "1": "$54.99",
-        "2": "$79.99",
-        "3": "$114.99"
-      }
+        "2": "$60.99",
+        "3": "$72.99"
+      },
+      "min_tier": 1
     },
     {
       "key": "smallbusiness",
@@ -105,20 +110,22 @@
       "desc": "CRM, team chat, office suite, DEFCON ONE + Reactor AI",
       "prices": {
         "1": "$104.99",
-        "2": "$163.99",
-        "3": "$218.99"
-      }
+        "2": "$110.99",
+        "3": "$122.99"
+      },
+      "min_tier": 1
     },
     {
       "key": "enterprise",
       "name": "Enterprise",
-      "price": "$208.99",
+      "price": "$226.99",
       "desc": "Unlimited users, custom integrations, dedicated support, full AI suite",
       "prices": {
         "1": "$208.99",
-        "2": "$313.99",
-        "3": "$518.99"
-      }
+        "2": "$214.99",
+        "3": "$226.99"
+      },
+      "min_tier": 3
     }
   ],
   "micro": [
@@ -129,9 +136,10 @@
       "desc": "Task management, notes, and personal organization tools.",
       "prices": {
         "1": "$24.99",
-        "2": "$39.99",
-        "3": "$54.99"
-      }
+        "2": "$30.99",
+        "3": "$42.99"
+      },
+      "min_tier": 1
     },
     {
       "key": "meeting_room",
@@ -140,9 +148,10 @@
       "desc": "Video calls, scheduling, collaborative notes \u2014 replace Zoom",
       "prices": {
         "1": "$24.99",
-        "2": "$39.99",
-        "3": "$54.99"
-      }
+        "2": "$30.99",
+        "3": "$42.99"
+      },
+      "min_tier": 1
     },
     {
       "key": "privacy_pack",
@@ -151,9 +160,10 @@
       "desc": "Encrypted storage, password manager, private VPN \u2014 total privacy",
       "prices": {
         "1": "$24.99",
-        "2": "$39.99",
-        "3": "$54.99"
-      }
+        "2": "$30.99",
+        "3": "$42.99"
+      },
+      "min_tier": 1
     },
     {
       "key": "writer_studio",
@@ -162,9 +172,10 @@
       "desc": "Blog, newsletter, research archive, bookmarks \u2014 replace Substack",
       "prices": {
         "1": "$28.99",
-        "2": "$43.99",
-        "3": "$64.99"
-      }
+        "2": "$34.99",
+        "3": "$46.99"
+      },
+      "min_tier": 1
     },
     {
       "key": "artist_storefront",
@@ -173,9 +184,10 @@
       "desc": "Online store, portfolio, photo galleries \u2014 replace Etsy",
       "prices": {
         "1": "$28.99",
-        "2": "$43.99",
-        "3": "$64.99"
-      }
+        "2": "$34.99",
+        "3": "$46.99"
+      },
+      "min_tier": 1
     },
     {
       "key": "podcaster",
@@ -184,9 +196,10 @@
       "desc": "Podcast hosting, show notes blog, listener analytics \u2014 own your feed",
       "prices": {
         "1": "$34.99",
-        "2": "$49.99",
-        "3": "$74.99"
-      }
+        "2": "$40.99",
+        "3": "$52.99"
+      },
+      "min_tier": 1
     },
     {
       "key": "freelancer",
@@ -195,9 +208,10 @@
       "desc": "Invoicing, scheduling, client contacts \u2014 run your business",
       "prices": {
         "1": "$34.99",
-        "2": "$49.99",
-        "3": "$74.99"
-      }
+        "2": "$40.99",
+        "3": "$52.99"
+      },
+      "min_tier": 1
     },
     {
       "key": "musician",
@@ -206,9 +220,10 @@
       "desc": "Music streaming, artist website, merch store \u2014 own your music",
       "prices": {
         "1": "$34.99",
-        "2": "$49.99",
-        "3": "$74.99"
-      }
+        "2": "$40.99",
+        "3": "$52.99"
+      },
+      "min_tier": 1
     },
     {
       "key": "family_hub",
@@ -217,9 +232,10 @@
       "desc": "Shared drive, photos, passwords for 6 family members",
       "prices": {
         "1": "$38.99",
-        "2": "$59.99",
-        "3": "$84.99"
-      }
+        "2": "$44.99",
+        "3": "$56.99"
+      },
+      "min_tier": 1
     },
     {
       "key": "photographer",
@@ -228,9 +244,10 @@
       "desc": "Photo library, client galleries, portfolio, print sales",
       "prices": {
         "1": "$38.99",
-        "2": "$59.99",
-        "3": "$84.99"
-      }
+        "2": "$44.99",
+        "3": "$56.99"
+      },
+      "min_tier": 1
     },
     {
       "key": "bookkeeper",
@@ -239,9 +256,10 @@
       "desc": "Document scanner, client portal, secure messaging",
       "prices": {
         "1": "$38.99",
-        "2": "$59.99",
-        "3": "$84.99"
-      }
+        "2": "$44.99",
+        "3": "$56.99"
+      },
+      "min_tier": 1
     },
     {
       "key": "video_creator",
@@ -250,9 +268,10 @@
       "desc": "Video hosting, community blog, paid memberships \u2014 replace YouTube",
       "prices": {
         "1": "$44.99",
-        "2": "$69.99",
-        "3": "$114.99"
-      }
+        "2": "$50.99",
+        "3": "$62.99"
+      },
+      "min_tier": 1
     },
     {
       "key": "contractor",
@@ -261,9 +280,10 @@
       "desc": "Digital contracts, project management, time tracking",
       "prices": {
         "1": "$44.99",
-        "2": "$69.99",
-        "3": "$114.99"
-      }
+        "2": "$50.99",
+        "3": "$62.99"
+      },
+      "min_tier": 1
     },
     {
       "key": "realtor",
@@ -272,9 +292,10 @@
       "desc": "Lead CRM, listing photos, digital contracts",
       "prices": {
         "1": "$44.99",
-        "2": "$69.99",
-        "3": "$114.99"
-      }
+        "2": "$50.99",
+        "3": "$62.99"
+      },
+      "min_tier": 1
     },
     {
       "key": "educator",
@@ -283,9 +304,10 @@
       "desc": "Virtual classroom, whiteboard, file sharing for students",
       "prices": {
         "1": "$44.99",
-        "2": "$69.99",
-        "3": "$114.99"
-      }
+        "2": "$50.99",
+        "3": "$62.99"
+      },
+      "min_tier": 1
     },
     {
       "key": "therapist",
@@ -294,9 +316,10 @@
       "desc": "Secure video sessions, encrypted notes, client portal \u2014 HIPAA-ready",
       "prices": {
         "1": "$54.99",
-        "2": "$79.99",
-        "3": "$144.99"
-      }
+        "2": "$60.99",
+        "3": "$72.99"
+      },
+      "min_tier": 1
     },
     {
       "key": "legal",
@@ -305,9 +328,10 @@
       "desc": "Document management, e-signatures, secure client portal",
       "prices": {
         "1": "$54.99",
-        "2": "$79.99",
-        "3": "$144.99"
-      }
+        "2": "$60.99",
+        "3": "$72.99"
+      },
+      "min_tier": 1
     }
   ]
 }
