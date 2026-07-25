@@ -1,7 +1,7 @@
 import catalog from '@/data/catalog.json'
 
 // Live all-in per-tier amounts from the wopr.systems Flask app.
-const API = process.env.PRICES_API || ''
+const API = process.env.PRICES_API || 'https://wopr.systems/api/prices'
 
 function fmt(cents: number | null | undefined): string | null {
   if (cents == null || Number.isNaN(cents)) return null
@@ -15,7 +15,6 @@ function parseCents(d: any): number {
 export async function getPricedCatalog() {
   let live: any = null
   try {
-    if (!API) throw new Error('catalog-authoritative')
     const res = await fetch(API, { next: { revalidate: 600 } })
     if (res.ok) live = await res.json()
   } catch {

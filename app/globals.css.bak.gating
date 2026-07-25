@@ -226,15 +226,3 @@ button,a{-webkit-tap-highlight-color:transparent}
 @media(max-width:370px){
   .brand{font-size:.78rem}
 }
-
-/* === bundle tier gating === */
-.tierpick{display:flex;gap:6px;margin:10px 0 8px;flex-wrap:wrap}
-.tierchip{flex:1;min-width:64px;display:flex;flex-direction:column;align-items:center;gap:1px;
-  padding:6px 4px;border:1px solid rgba(120,200,120,.35);border-radius:8px;background:transparent;
-  color:inherit;font:inherit;font-size:.7rem;cursor:pointer;transition:border-color .15s,background .15s,opacity .15s}
-.tierchip .tc-box{font-weight:700}
-.tierchip .tc-store{opacity:.7;font-size:.62rem}
-.tierchip.on{border-color:#6cff8a;background:rgba(120,255,120,.14);box-shadow:0 0 0 1px #6cff8a inset}
-.tierchip.locked{opacity:.3;cursor:not-allowed;text-decoration:line-through;filter:grayscale(1)}
-.tierchip:not(.locked):hover{border-color:#6cff8a}
-.minnote{font-size:.66rem;color:#e6b45a;margin:2px 0 4px;letter-spacing:.02em}
