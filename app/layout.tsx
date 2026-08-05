@@ -67,7 +67,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               <Link href="/#platform">Platform</Link>
               <Link href="/join">Pricing</Link>
               <Link href="/#impact">Revenue &amp; impact</Link>
-              <a href="https://nodez3r0.wopr.systems">Network portal</a>
+              <a href="https://nodez3r0.wopr.systems">Nodez3r0</a>
               <a href="https://auth.wopr.systems">Login</a>
             </nav>
             <nav className="footer-links" aria-label="Related organizations">

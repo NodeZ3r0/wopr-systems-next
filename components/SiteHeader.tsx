@@ -18,7 +18,7 @@ const globalGroups = [
     links: [
       ['Folkmoot', 'https://folkmoot.app'],
       ['WOPR Foundation', 'https://wopr.foundation'],
-      ['Network Portal', 'https://nodez3r0.wopr.systems'],
+      ['Nodez3r0', 'https://nodez3r0.wopr.systems'],
       ['WOPR Login', 'https://auth.wopr.systems'],
     ],
   },
@@ -116,7 +116,7 @@ export default function SiteHeader() {
               ))}
               <div className="local-menu-divider" />
               <a href="https://wopr.foundation" onClick={close}>WOPR Foundation</a>
-              <a href="https://nodez3r0.wopr.systems" onClick={close}>Network portal</a>
+              <a href="https://nodez3r0.wopr.systems" onClick={close}>Nodez3r0</a>
               <a href="https://auth.wopr.systems" onClick={close}>Login</a>
             </nav>
           )}
