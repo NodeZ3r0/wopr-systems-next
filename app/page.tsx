@@ -54,7 +54,7 @@ export default function Home() {
           <div className="cta">
             <Link className="btn btn-solid" href="/join">View plans</Link>
             <Link className="btn" href="/why">Why WOPR</Link>
-            <a className="btn" href="https://nodez3r0.wopr.systems">Network portal</a>
+            <a className="btn" href="https://nodez3r0.wopr.systems">Nodez3r0</a>
           </div>
         </div>
       </section>

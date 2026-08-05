@@ -3,8 +3,8 @@ services:
     build:
       context: .
       args:
-        SITE_URL: https://wopr.systems
-        ALLOW_INDEXING: "true"
+        SITE_URL: https://preview.wopr.systems
+        ALLOW_INDEXING: "false"
     image: wopr-systems-next:latest
     container_name: wopr-systems-next
     restart: unless-stopped
@@ -23,5 +23,5 @@ services:
     environment:
       NODE_ENV: production
       NEXT_TELEMETRY_DISABLED: "1"
-      SITE_URL: https://wopr.systems
-      ALLOW_INDEXING: "true"
+      SITE_URL: https://preview.wopr.systems
+      ALLOW_INDEXING: "false"
