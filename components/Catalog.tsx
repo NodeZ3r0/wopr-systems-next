@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react'
 
-const CHECKOUT = 'https://wopr.systems/checkout'
+const CHECKOUT = 'https://orc.wopr.systems/onboard/checkout'
 
 // Each storefront tier maps to a Contabo VPS box. RAM gates which bundles can run
 // on it; a bundle whose min box is bigger than a tier's box grays that tier out.
@@ -11,8 +11,16 @@ const TIER_BOX: Record<string, { box: string; ramGb: number; storage: string }> 
   '3': { box: 'VPS XL', ramGb: 60, storage: '500GB+' },
 }
 
+// Storefront keys must match control_plane/stripe_catalog.py exactly.
+// catalog.json says "smallbusiness"; the billing catalog says "small_business".
+const CHECKOUT_KEY: Record<string, string> = { smallbusiness: 'small_business' }
+
 function checkoutLink(type: string, key: string, tier: string, period: string) {
-  let url = `${CHECKOUT}?tier=t${tier}&bundle=${type}-${key}`
+  // The control plane create-checkout API accepts BARE bundle keys
+  // ("starter", "podcaster"). Prefixed keys ("sovereign-starter") are
+  // rejected with {"detail":"Invalid bundle: ..."} and no Stripe session
+  // is ever created, so the family travels in its own param.
+  let url = `${CHECKOUT}?tier=t${tier}&bundle=${CHECKOUT_KEY[key] ?? key}&type=${type}`
   if (period === 'yearly') url += '&period=yearly'
   return url
 }
