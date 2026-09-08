@@ -238,3 +238,30 @@ button,a{-webkit-tap-highlight-color:transparent}
 .tierchip.locked{opacity:.3;cursor:not-allowed;text-decoration:line-through;filter:grayscale(1)}
 .tierchip:not(.locked):hover{border-color:#6cff8a}
 .minnote{font-size:.66rem;color:#e6b45a;margin:2px 0 4px;letter-spacing:.02em}
+
+/* ---- /join single-offer chooser (2026-09-07 simplify) ---- */
+.sizes { align-items: stretch; }
+.card.size { display: flex; flex-direction: column; position: relative; }
+.card.size.featured { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent) inset; }
+.card.size .badge { position: absolute; top: -11px; left: 50%; transform: translateX(-50%);
+  white-space: nowrap; background: var(--accent); color: #041; font-weight: 700;
+  font-size: .72rem; padding: 3px 10px; border-radius: 999px; }
+.card.size .room { margin-top: 6px; font-weight: 600; }
+.card.size .room .photos { display: block; font-weight: 400; color: var(--muted); font-size: .85rem; }
+.card.size .speed { margin: 10px 0 4px; font-size: .9rem; }
+.card.size .choose { margin-top: auto; }
+
+.replaces { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+.rep-row { padding: 16px 18px; }
+.rep-head { display: flex; flex-direction: column; gap: 2px; margin-bottom: 6px; }
+.rep-head strong { font-size: 1.05rem; }
+.rep-instead { color: var(--muted); font-size: .82rem; }
+
+/* ---- /join/name address + form (2026-09-07) ---- */
+.addr-row { display: flex; align-items: stretch; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.addr-row input { border: 0; outline: 0; flex: 1; padding: 12px 14px; font-size: 1.05rem; background: var(--surface); color: var(--text); min-width: 0; }
+.addr-suffix { display: flex; align-items: center; padding: 0 14px; background: var(--band, rgba(0,0,0,.05)); color: var(--muted); font-size: .95rem; white-space: nowrap; }
+.card input[type="email"], .card #fullname { width: 100%; padding: 12px 14px; font-size: 1.05rem; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--text); }
+.addr-note { font-size: .82rem; color: var(--muted); margin-top: 6px; }
+.addr-note .ok, .ok { color: #16794a; font-weight: 600; }
+.addr-note .bad, .bad { color: #b3261e; font-weight: 600; }
