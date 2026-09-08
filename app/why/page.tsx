@@ -4,7 +4,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Why WOPR',
   description:
-    'Learn why WOPR Systems builds managed, customer-controlled private cloud infrastructure and how its business model funds public benefit.',
+    'Why WOPR: your files, photos and passwords on a computer that is yours, set up and looked after for you.',
   alternates: { canonical: '/why' },
   openGraph: {
     url: '/why',
@@ -18,7 +18,6 @@ const PRINCIPLES = [
   ['Privacy', 'No advertising profile, no data brokerage, and no business model built around watching what you do.'],
   ['Control', 'Your environment, identity, and data remain portable. WOPR operates the system without claiming your digital life.'],
   ['Reliability', 'Managed updates, monitoring, backups, recovery planning, and support turn self-hosting into dependable infrastructure.'],
-  ['Public benefit', 'The revenue allocation funds independent charity, core operations, infrastructure, and open-source work.'],
 ]
 
 export default function WhyWopr() {
@@ -71,23 +70,13 @@ export default function WhyWopr() {
             ))}
           </div>
 
-          <h2>Company and charity are separate</h2>
           <p>
-            WOPR Systems sells and operates technology services. The WOPR Foundation is a
-            separate nonprofit organization with independent charitable responsibilities.
-            Under WOPR’s published allocation model, 60% of revenue after direct service costs supports the
-            Foundation, 20% supports business operations, 10% supports network
-            infrastructure, and 10% supports open-source development.
-          </p>
-          <p>
-            Every plan has one all-in price that includes managed hosting; there is no
-            separate VPS surcharge. A service purchase is a commercial transaction, not a
-            charitable contribution, and is not represented as tax deductible.
+            Every plan has one all-in price that includes managed hosting. There is no
+            separate server charge.
           </p>
 
           <div className="cta prose-cta">
             <Link className="btn btn-solid" href="/join">View plans</Link>
-            <a className="btn" href="https://wopr.foundation">Visit the Foundation</a>
           </div>
         </div>
       </section>

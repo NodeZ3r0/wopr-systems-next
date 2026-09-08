@@ -25,8 +25,7 @@ const FAQS: [string, React.ReactNode][] = [
     'Who runs this?',
     <>
       WOPR Systems LLC operates wopr.systems and every beacon it deploys. WOPR Systems is a
-      managed infrastructure company, and a separate organization from the WOPR Foundation (a
-      501(c)(3) nonprofit). WOPR Systems funds the Foundation, but the two are independent.
+      managed hosting company. We set up your private cloud and look after it for you.
     </>,
   ],
 ]
