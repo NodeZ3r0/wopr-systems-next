@@ -102,36 +102,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section" id="impact">
-        <div className="wrap">
-          <div className="sec-head">
-            <div className="mono-eyebrow">Revenue &amp; impact</div>
-            <h2 className="glow">A business model that funds public benefit</h2>
-            <p>
-              Each plan has one all-in price that includes managed hosting. After direct
-              service costs, WOPR’s revenue follows a published allocation model.
-            </p>
-          </div>
-          <div className="allocation" aria-label="Platform fee allocation">
-            <div className="allocation-primary">
-              <strong>60%</strong>
-              <span>WOPR Foundation charitable programs</span>
-            </div>
-            <div><strong>20%</strong><span>Business operations</span></div>
-            <div><strong>10%</strong><span>Network infrastructure</span></div>
-            <div><strong>10%</strong><span>Open-source development</span></div>
-          </div>
-          <p className="disclosure">
-            WOPR Systems LLC and the WOPR Foundation are separate organizations. Allocations
-            to the Foundation support its independently governed charitable work; purchasing
-            a WOPR service is not a tax-deductible donation.
-          </p>
-          <div className="cta">
-            <a className="btn" href="https://wopr.foundation">Visit the WOPR Foundation</a>
-            <Link className="btn" href="/why">About WOPR Systems</Link>
-          </div>
-        </div>
-      </section>
 
       <section className="section final-cta">
         <div className="wrap">

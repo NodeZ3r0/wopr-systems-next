@@ -1,8 +1,11 @@
-// The simple chooser. One product, three sizes. The ONLY decision on the page.
-// The buy flow now lives entirely on wopr.systems (Next.js): the size choice
-// travels to /join/name as a query param, so nothing is dropped at a
-// cross-domain boundary the way the old orc.wopr.systems/onboard link did.
+'use client'
 
+import { useState } from 'react'
+
+// The simple chooser. One product, three sizes, ONE decision.
+// Radio buttons rather than three separate buttons: the continue button's
+// label is derived from the current selection, so the price on the button can
+// never disagree with the size it sends you to.
 export type Size = {
   id: 'small' | 'medium' | 'large'
   name: string
@@ -14,32 +17,48 @@ export type Size = {
   badge?: string
 }
 
-function link(size: Size['id']) {
-  return `/join/name?size=${size}`
-}
-
 export default function SizePicker({ sizes }: { sizes: Size[] }) {
+  const [picked, setPicked] = useState<Size['id']>(sizes[0]?.id ?? 'small')
+  const current = sizes.find((s) => s.id === picked) ?? sizes[0]
+
   return (
-    <div className="grid g3 sizes" role="group" aria-label="Pick your size">
-      {sizes.map((s) => (
-        <div className={'card size' + (s.badge ? ' featured' : '')} key={s.id}>
-          {s.badge ? <span className="badge">{s.badge}</span> : null}
-          <h3>{s.name}</h3>
-          <div className="price">
-            {s.price}
-            <small> a month</small>
-          </div>
-          <div className="room">
-            {s.room}
-            <span className="photos">{s.photos}</span>
-          </div>
-          <p className="speed">{s.speed}</p>
-          <p className="desc">{s.good_for}</p>
-          <a className="btn btn-solid btn-sm choose" href={link(s.id)}>
-            Pick {s.name} &rarr;
-          </a>
-        </div>
-      ))}
+    <div className="picker">
+      <div className="sizes-radio" role="radiogroup" aria-label="Pick your size">
+        {sizes.map((s) => {
+          const on = s.id === picked
+          return (
+            <label
+              key={s.id}
+              className={'sizeopt' + (on ? ' on' : '')}
+              onClick={() => setPicked(s.id)}
+            >
+              <input
+                type="radio"
+                name="size"
+                value={s.id}
+                checked={on}
+                onChange={() => setPicked(s.id)}
+              />
+              <span className="dot" aria-hidden="true" />
+              <span className="body">
+                <span className="line1">
+                  <strong>{s.name}</strong>
+                  <span className="amt">{s.price}<small>/mo</small></span>
+                </span>
+                <span className="line2">
+                  {s.room} — {s.photos}
+                </span>
+              </span>
+              {s.badge ? <span className="badge">{s.badge}</span> : null}
+            </label>
+          )
+        })}
+      </div>
+
+      <a className="btn btn-solid pickgo" href={`/join/name?size=${picked}`}>
+        Continue with {current.name} — {current.price} a month &rarr;
+      </a>
+      <p className="pickfoot">You can move up to a bigger size later.</p>
     </div>
   )
 }
