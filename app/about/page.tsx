@@ -32,7 +32,7 @@ export default function About() {
           <div className="mono-eyebrow">wopr.systems / about</div>
           <h1 className="glow">ABOUT WOPR</h1>
           <p className="page-lead">
-            Worldwide Organization for People’s Rights — a secure, socially democratic,
+            Whole Organization Pattern Recognition — a secure, socially democratic,
             distributed mesh network that serves as an open platform for the people.
           </p>
         </div>
@@ -42,8 +42,8 @@ export default function About() {
         <div className="wrap narrow prose">
           <h2>Our mission</h2>
           <p>
-            To build democratic technology infrastructure that empowers communities, protects
-            digital rights, and provides open access to technology for all.
+            To build technology that communities own and run together, that protects your
+            rights online, and that anyone can use.
           </p>
 
           <h2>Our network</h2>
@@ -68,7 +68,7 @@ export default function About() {
           </div>
 
           <div className="cta" style={{ marginTop: '40px' }}>
-            <Link className="btn btn-solid" href="/join">Create your beacon →</Link>
+            <Link className="btn btn-solid" href="/join">Get your own cloud →</Link>
             <Link className="btn" href="/why">Why WOPR →</Link>
           </div>
         </div>
