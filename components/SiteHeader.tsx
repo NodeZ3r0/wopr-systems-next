@@ -8,25 +8,17 @@ const localLinks = [
   { href: '/why', label: 'Why WOPR' },
   { href: '/#platform', label: 'Platform' },
   { href: '/#model', label: 'How it works' },
-  { href: '/join', label: 'Plans & pricing' },
+  { href: '/join', label: 'Sizes & prices' },
 ]
 
 const globalGroups = [
   {
     label: 'Network',
     links: [
-      ['Folkmoot', 'https://folkmoot.app'],
+      ['Consulting', 'https://wopr.systems'],
+      ['Private Cloud', 'https://cloud.wopr.systems'],
       ['Nodez3r0', 'https://nodez3r0.wopr.systems'],
       ['WOPR Login', 'https://auth.wopr.systems'],
-    ],
-  },
-  {
-    label: 'Public initiatives',
-    links: [
-      ['Project 2032', 'https://project2032.us'],
-      ['Power for the People', 'https://powerforthepeople.party'],
-      ['ASScast', 'https://asscast.org'],
-      ['WOPR TV', 'https://wopr-tv.wopr.systems'],
     ],
   },
   {

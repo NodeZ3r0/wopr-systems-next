@@ -41,6 +41,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/faq`, changeFrequency: 'monthly', priority: 0.6 },
     { url: `${siteUrl}/about`, changeFrequency: 'monthly', priority: 0.5 },
     { url: `${siteUrl}/allies`, changeFrequency: 'monthly', priority: 0.5 },
+    // The /learn hub itself. It is a generated index page (not a Next route),
+    // so nothing else in this file would ever emit it.
+    { url: `${siteUrl}/learn/`, changeFrequency: 'weekly', priority: 0.7 },
   ]
 
   // The content engine writes /learn articles to /var/www/wopr-content/<host>/

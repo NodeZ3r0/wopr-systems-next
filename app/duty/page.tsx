@@ -137,7 +137,7 @@ export default function Duty() {
         <div className="wrap narrow prose final-cta">
           <h2>Now what?</h2>
           <p style={{ margin: '0 auto', maxWidth: '62ch' }}>
-            Jefferson told you what to do. Building independent infrastructure, organizing your
+            Jefferson told you what to do. Building independent networks, organizing your
             community, and refusing to participate in systems designed to exploit you — that’s
             how you do your duty.
           </p>

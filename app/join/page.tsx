@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import SizePicker, { type Size } from '@/components/SizePicker'
-import { getPricedCatalog } from '@/lib/prices'
+import { getPlanPricing } from '@/lib/prices'
 import { siteUrl } from '@/lib/site'
 
 export const metadata: Metadata = {
@@ -29,9 +29,8 @@ const REPLACES: [string, string][] = [
 ]
 
 export default async function Join() {
-  const catalog = await getPricedCatalog()
-  const starter = catalog.sovereign.find((b: any) => b.key === 'starter')
-  const p = starter?.prices || { '1': '$24.99', '2': '$39.99', '3': '$54.99' }
+  const pricing = await getPlanPricing()
+  const p = pricing.monthly
 
   const sizes: Size[] = [
     { id: 'small', name: 'Small', price: p['1'], room: '50 GB', photos: 'about 10,000 photos', speed: '', good_for: '' },
@@ -39,20 +38,58 @@ export default async function Join() {
     { id: 'large', name: 'Large', price: p['3'], room: '500 GB', photos: 'about 100,000 photos', speed: '', good_for: '' },
   ]
 
+  // Yearly is ten times monthly (two months free). lib/prices.ts returns the
+  // yearly prices for every size, so the structured data cannot drift from the
+  // page. Amounts are emitted as bare numbers because schema.org/price wants a
+  // number, not a currency string.
+  const py = pricing.yearly
+  const num = (v: string) => String(v).replace(/[^0-9.]/g, '')
+
+  const offer = (
+    label: string,
+    tierKey: '1' | '2' | '3',
+    period: 'monthly' | 'yearly',
+  ) => {
+    const price = period === 'yearly' ? num(py[tierKey]) : num(p[tierKey])
+    return {
+      '@type': 'Offer',
+      name: `${label} — paid ${period === 'yearly' ? 'yearly' : 'monthly'}`,
+      sku: `wopr-private-cloud-${label.toLowerCase()}-${period}`,
+      price,
+      priceCurrency: 'USD',
+      availability: 'https://schema.org/InStock',
+      url: `${siteUrl}/join`,
+      priceSpecification: {
+        '@type': 'UnitPriceSpecification',
+        price,
+        priceCurrency: 'USD',
+        billingDuration: 1,
+        unitCode: period === 'yearly' ? 'ANN' : 'MON',
+      },
+    }
+  }
+
+  const offers = [
+    offer('Small', '1', 'monthly'),
+    offer('Medium', '2', 'monthly'),
+    offer('Large', '3', 'monthly'),
+    offer('Small', '1', 'yearly'),
+    offer('Medium', '2', 'yearly'),
+    offer('Large', '3', 'yearly'),
+  ]
+
   const ld = {
     '@context': 'https://schema.org',
     '@type': 'Product',
+    '@id': `${siteUrl}/join#product`,
     name: 'WOPR Private Cloud',
-    description: 'Your files, photos and passwords on a computer that is yours.',
+    description:
+      'Your files, photos, passwords, calendar, documents and your own web page on a computer that is yours. One login. We set it up and look after it.',
     brand: { '@type': 'Brand', name: 'WOPR Systems' },
-    offers: {
-      '@type': 'AggregateOffer',
-      priceCurrency: 'USD',
-      lowPrice: '24.99',
-      highPrice: '54.99',
-      offerCount: 3,
-      url: `${siteUrl}/join`,
-    },
+    category: 'Managed private cloud hosting',
+    image: `${siteUrl}/opengraph-image`,
+    url: `${siteUrl}/join`,
+    offers,
   }
 
   return (

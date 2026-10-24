@@ -3,40 +3,40 @@ import Link from 'next/link'
 const FEATURES = [
   {
     i: '⌘',
-    h: 'One account, every service',
-    p: 'A single identity for files, calendar, passwords, chat, publishing, commerce, and AI—without a Big Tech login.',
+    h: 'One login, every app',
+    p: 'The same login opens your files, calendar, passwords, chat, web page, shop and AI. No Big Tech account needed.',
   },
   {
     i: '◉',
     h: 'Your own private cloud',
-    p: 'Your services run on a dedicated beacon you control, connected to the wider network over an encrypted mesh.',
+    p: 'Your apps run on one computer that is yours alone. It talks to the rest of the network over a locked, private link.',
   },
   {
     i: '◆',
-    h: 'Managed operations',
-    p: 'WOPR handles deployment, updates, monitoring, backups, and incident response while you retain ownership and portability.',
+    h: 'We look after it',
+    p: 'We set it up, keep it updated, watch it, back it up and fix it when it breaks. You still own it, and you can take it with you.',
   },
   {
     i: '▶',
     h: 'Private AI',
-    p: 'Use local and network-hosted AI for chat, coding, research, and image generation without making your work an ad profile.',
+    p: 'Use AI for chat, coding, research and pictures without your work being turned into an ad profile.',
   },
   {
     i: '▣',
-    h: 'Security by design',
-    p: 'Hardened access, encrypted connectivity, centralized identity, monitoring, and documented recovery practices are built in.',
+    h: 'Safe from the start',
+    p: 'Locked-down access, scrambled connections, one login, round-the-clock watching and a written plan for getting your things back.',
   },
   {
     i: '↗',
     h: 'A real exit',
-    p: 'Open-source services and exportable data keep you portable. You can leave without losing your digital life.',
+    p: 'Every app is open software and all your data can be downloaded. If you ever want to leave, you take everything with you.',
   },
 ]
 
 const STEPS = [
-  ['Choose a bundle', 'Pick the services and storage that match your work, family, or organization.'],
-  ['Pay one clear price', 'Managed infrastructure is included. There is no separate VPS charge or surprise hosting add-on.'],
-  ['We operate the stack', 'WOPR deploys, secures, monitors, updates, and supports your private environment.'],
+  ['Pick a size', 'Small, Medium or Large. The size is how much room you get for your files and photos.'],
+  ['Pay one clear price', 'The computer and the care are included. There is no second hosting bill and no surprise charges.'],
+  ['We keep it running', 'We set it up, lock it down, watch it, update it and answer your questions. You just use it.'],
 ]
 
 export default function Home() {
@@ -44,15 +44,15 @@ export default function Home() {
     <>
       <section className="hero">
         <div className="wrap">
-          <div className="mono-eyebrow">Private cloud · Managed infrastructure · Open platform</div>
+          <div className="mono-eyebrow">Your own private cloud · We look after it · Open software</div>
           <h1 className="glow">YOUR CLOUD.<br />YOUR RULES.</h1>
           <p className="taglead">
-            WOPR Systems builds and operates private digital infrastructure for people,
-            creators, teams, and communities—without ads, data brokerage, or platform lock-in.
+            WOPR Systems builds you your own private cloud and looks after it for you—no ads,
+            nobody selling your data, and nothing stopping you from leaving.
           </p>
-          <div className="onekey glow">One key. Every service. Your infrastructure.</div>
+          <div className="onekey glow">One login. Every app. Your computer.</div>
           <div className="cta">
-            <Link className="btn btn-solid" href="/join">View plans</Link>
+            <Link className="btn btn-solid" href="/join">See sizes and prices</Link>
             <Link className="btn" href="/why">Why WOPR</Link>
             <a className="btn" href="https://nodez3r0.wopr.systems">Nodez3r0</a>
           </div>
@@ -63,10 +63,10 @@ export default function Home() {
         <div className="wrap">
           <div className="sec-head">
             <div className="mono-eyebrow">The platform</div>
-            <h2 className="glow">A private stack without the full-time admin job</h2>
+            <h2 className="glow">Your own computer, without the full-time job of running it</h2>
             <p>
-              Get the practical benefits of self-hosting with deployment, security, and
-              maintenance handled as a managed service.
+              You get everything good about running your own computer. We do the setting up,
+              the locking down and the upkeep.
             </p>
           </div>
           <div className="grid g3">
@@ -97,7 +97,7 @@ export default function Home() {
             ))}
           </ol>
           <div className="cta">
-            <Link className="btn btn-solid" href="/join">Configure a beacon</Link>
+            <Link className="btn btn-solid" href="/join">Pick your size</Link>
           </div>
         </div>
       </section>
@@ -105,9 +105,9 @@ export default function Home() {
 
       <section className="section final-cta">
         <div className="wrap">
-          <h2 className="glow">Ready to own your digital infrastructure?</h2>
-          <p>Join a community free or launch a managed sovereign suite.</p>
-          <div className="cta"><Link className="btn btn-solid" href="/join">See plans and pricing</Link></div>
+          <h2 className="glow">Ready to own your own cloud?</h2>
+          <p>Pick Small, Medium or Large. Pay by the month or by the year.</p>
+          <div className="cta"><Link className="btn btn-solid" href="/join">See sizes and prices</Link></div>
         </div>
       </section>
     </>

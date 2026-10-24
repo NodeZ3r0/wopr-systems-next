@@ -68,14 +68,14 @@ const ARTICLES: Article[] = [
     num: 'VII', title: 'Security & Counterintelligence',
     body: [
       'The People’s Counterintelligence Bureau: independent, transparent, accountable. All findings published. No detention power. No mass surveillance. No secret operations.',
-      'Structural defenses against external interference: food sovereignty, energy independence, a domestic medical supply chain, and payment infrastructure outside the dollar and SWIFT systems. The PCB may not target political dissent or labor organizing.',
+      'Structural defenses against external interference: food sovereignty, energy independence, a domestic medical supply chain, and payment systems outside the dollar and SWIFT. The PCB may not target political dissent or labor organizing.',
     ],
     badge: 'The moment it gains secret detention power, it becomes the enemy.',
   },
   {
     num: 'VIII', title: 'Economic Framework',
     body: [
-      'No individual may own productive infrastructure in a manner that extracts value from the labor of others. This is not nationalization — the state owns nothing. The workers who operate it do, through their co-ops.',
+      'No individual may own productive property in a manner that extracts value from the labor of others. This is not nationalization — the state owns nothing. The workers who operate it do, through their co-ops.',
       'Personal property is preserved: your home, your possessions, your tools, your art. What ends is private ownership of factories, energy, transport, and communications. Labor is not a commodity. Productive assets return to the commons on death — no dynasty may form.',
     ],
     badge: 'The workers own everything they build.',
@@ -124,7 +124,7 @@ const ARTICLES: Article[] = [
     num: 'XIV', title: 'Three-Layer Funding',
     body: [
       'No taxation in the old sense — no state extracting a percentage of labor under threat. There is contribution: each co-op contributes a negotiated share of its surplus to the commons.',
-      'Layer 1 — co-ops care for their own members first (housing, healthcare, food, education). Layer 2 — surplus flows to a regional commons pool covering everyone else, with a gap guarantee so no person falls through the cracks. Layer 3 — a continental fund for defense, infrastructure, and environmental remediation.',
+      'Layer 1 — co-ops care for their own members first (housing, healthcare, food, education). Layer 2 — surplus flows to a regional commons pool covering everyone else, with a gap guarantee so no person falls through the cracks. Layer 3 — a continental fund for defense, public works, and environmental repair.',
     ],
     badge: 'Three layers. No IRS. No loopholes. No extraction.',
   },

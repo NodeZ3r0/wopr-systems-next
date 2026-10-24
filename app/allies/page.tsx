@@ -39,7 +39,7 @@ export default function Allies() {
           </div>
 
           <div className="cta" style={{ marginTop: '40px' }}>
-            <Link className="btn btn-solid" href="/join">Create your beacon →</Link>
+            <Link className="btn btn-solid" href="/join">Get your own cloud →</Link>
             <a className="btn" href="https://wopr.foundation/allies.php" target="_blank" rel="noopener noreferrer">
               Foundation allies →
             </a>

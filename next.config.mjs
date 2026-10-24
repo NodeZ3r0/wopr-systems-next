@@ -45,11 +45,10 @@ const nextConfig = {
   reactStrictMode: true,
   turbopack: { root: process.cwd() },
   async redirects() {
-    // /bundles is retired: one product at /join, the full list at /catalog.
-    // Permanent so indexed bundle URLs keep their search value instead of 404ing.
+    // Preserve retired catalog URLs and send buyers to the current one-product flow.
     return [
       { source: '/bundles', destination: '/join', permanent: true },
-      { source: '/bundles/:slug', destination: '/catalog', permanent: true },
+      { source: '/bundles/:slug', destination: '/join', permanent: true },
     ]
   },
   async headers() {

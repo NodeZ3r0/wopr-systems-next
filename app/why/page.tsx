@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 const PRINCIPLES = [
   ['Privacy', 'No advertising profile, no data brokerage, and no business model built around watching what you do.'],
   ['Control', 'Your environment, identity, and data remain portable. WOPR operates the system without claiming your digital life.'],
-  ['Reliability', 'Managed updates, monitoring, backups, recovery planning, and support turn self-hosting into dependable infrastructure.'],
+  ['Reliability', 'We update it, watch it, back it up, plan for the worst and answer your questions, so running your own computer is something you can count on.'],
 ]
 
 export default function WhyWopr() {
@@ -40,7 +40,7 @@ export default function WhyWopr() {
           <p>
             Most online services are funded by extracting value from personal data,
             attention, lock-in, or opaque platform fees. Convenience is real, but the
-            customer rarely controls the infrastructure or has a practical exit.
+            customer rarely controls the computer their data sits on, or has a real way out.
           </p>
           <p>
             Running everything yourself solves the ownership problem and creates a new
@@ -50,15 +50,15 @@ export default function WhyWopr() {
 
           <h2>The WOPR approach</h2>
           <p>
-            WOPR Systems LLC is a managed infrastructure company. We deploy and operate
-            private, open-source service stacks called beacons. A beacon can serve an
-            individual, family, creator, business, or community while connecting securely
-            to the wider WOPR network.
+            WOPR Systems LLC looks after computers for people. We set up and run a private
+            set of open-source apps on a computer of your own. It can serve one person, a
+            family, a creator, a business or a whole community, and it connects safely to
+            the wider WOPR network.
           </p>
           <p>
-            Customers get a single identity, a defined service bundle, operational support,
-            and infrastructure they can move or export. WOPR gets paid to keep the system
-            useful, secure, and available—not to monetize customer behavior.
+            You get one login, a clear list of apps, real support, and everything you own
+            in a form you can download or move somewhere else. We get paid to keep it
+            useful, safe and switched on—never to sell what you do.
           </p>
 
           <div className="grid g2 principles">
@@ -76,7 +76,7 @@ export default function WhyWopr() {
           </p>
 
           <div className="cta prose-cta">
-            <Link className="btn btn-solid" href="/join">View plans</Link>
+            <Link className="btn btn-solid" href="/join">See sizes and prices</Link>
           </div>
         </div>
       </section>

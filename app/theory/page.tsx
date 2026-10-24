@@ -20,7 +20,7 @@ const MODELS: Model[] = [
     num: '01', title: 'Anarchosyndicalism',
     body: [
       'Workers control the means of production directly through their industrial unions — syndicates. The nation-state is replaced by a confederation of freely associated syndicates coordinating through direct democratic process.',
-      'The key distinction from communism is structural: there is no transitional state, no vanguard party, no central authority to capture. Power is distributed by architecture, not by policy. You cannot seize anarchosyndicalist infrastructure in a coup because there is no palace, no central committee, no single node that controls anything. Proven under fascist siege in Catalonia, 1936–1939.',
+      'The key distinction from communism is structural: there is no transitional state, no vanguard party, no central authority to capture. Power is distributed by architecture, not by policy. You cannot seize an anarchosyndicalist network in a coup because there is no palace, no central committee, no single node that controls anything. Proven under fascist siege in Catalonia, 1936–1939.',
     ],
     badge: 'The only model whose architecture prevents tyranny.',
   },
@@ -92,7 +92,7 @@ const MODELS: Model[] = [
     num: '10', title: 'The CIA Problem',
     body: [
       'External destabilization has killed more leftist projects than internal contradictions. Chile 1973. Guatemala 1954. Iran 1953. Nicaragua. Bolivia 2019. The pattern: economic warfare to cause scarcity, funded internal opposition, media destabilization, a willing military faction, a coup.',
-      'The defenses: economic sovereignty first (food, energy, medicine). Exit dollar-denominated systems before sanctions hit. Federated information infrastructure with no single capturable node. Transparent, syndicate-accountable counterintelligence — not secret police. The fundamental answer: distribute power so thoroughly that a coup has no target. Who do you arrest? What building do you seize? Everywhere and nowhere simultaneously.',
+      'The defenses: economic sovereignty first (food, energy, medicine). Exit dollar-denominated systems before sanctions hit. Federated information networks with no single capturable node. Transparent, syndicate-accountable counterintelligence — not secret police. The fundamental answer: distribute power so thoroughly that a coup has no target. Who do you arrest? What building do you seize? Everywhere and nowhere simultaneously.',
     ],
     badge: 'Distribute power so thoroughly there is no single throat to choke.',
   },
@@ -175,8 +175,8 @@ export default function Theory() {
           <p>
             You cannot build a free society by first consolidating all power into a vanguard
             party and hoping it relinquishes that power later. That has never happened. It will
-            not happen. Building independent infrastructure outside the systems designed to
-            exploit you is how the theory becomes practice.
+            not happen. Building your own independent networks outside the systems designed
+            to exploit you is how the theory becomes practice.
           </p>
         </div>
       </section>

@@ -2,6 +2,8 @@
 
 import { Suspense, useCallback, useEffect, useRef, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
+import pricing from '@/data/pricing.json'
+import { formatPrice } from '@/lib/prices'
 
 // The whole pre-purchase flow lives on wopr.systems now. This step collects the
 // customer's ADDRESS (the fun ownership moment) plus email, then hands off to
@@ -9,11 +11,17 @@ import { useSearchParams } from 'next/navigation'
 // https://wopr.systems and these three endpoints bypass Authentik (public).
 const API = 'https://orc.wopr.systems'
 
-const SIZES: Record<string, { name: string; tier: string; price: string; room: string }> = {
-  small: { name: 'Small', tier: 't1', price: '$24.99', room: '50 GB of room' },
-  medium: { name: 'Medium', tier: 't2', price: '$39.99', room: '200 GB of room' },
-  large: { name: 'Large', tier: 't3', price: '$54.99', room: '500 GB of room' },
-}
+const SIZES = Object.fromEntries(
+  Object.entries(pricing.sizes).map(([id, size]) => [
+    id,
+    {
+      name: size.name,
+      tier: size.tier,
+      price: formatPrice(size.monthly),
+      room: `${size.storage_gb} GB of room`,
+    },
+  ]),
+) as Record<string, { name: string; tier: string; price: string; room: string }>
 
 type NameState = 'idle' | 'checking' | 'ok' | 'taken' | 'error'
 
@@ -80,7 +88,9 @@ function NameForm() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          bundle: 'starter',
+          // The backend field stays `bundle` for compatibility with existing
+          // subscriptions and provisioning metadata. Customers see one product.
+          bundle: pricing.backend_product_key,
           tier: size.tier,
           period: 'monthly',
           email: email.trim(),

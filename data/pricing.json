@@ -1,0 +1,30 @@
+{
+  "product": "WOPR Private Cloud",
+  "backend_product_key": "starter",
+  "sizes": {
+    "small": {
+      "name": "Small",
+      "tier": "t1",
+      "monthly": 2499,
+      "yearly": 24990,
+      "storage_gb": 50,
+      "photos": "about 10,000 photos"
+    },
+    "medium": {
+      "name": "Medium",
+      "tier": "t2",
+      "monthly": 3999,
+      "yearly": 39990,
+      "storage_gb": 200,
+      "photos": "about 40,000 photos"
+    },
+    "large": {
+      "name": "Large",
+      "tier": "t3",
+      "monthly": 5499,
+      "yearly": 54990,
+      "storage_gb": 500,
+      "photos": "about 100,000 photos"
+    }
+  }
+}

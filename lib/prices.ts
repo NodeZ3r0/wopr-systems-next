@@ -1,51 +1,31 @@
-import catalog from '@/data/catalog.json'
+import pricing from '@/data/pricing.json'
 
-// Live all-in per-tier amounts from the wopr.systems Flask app.
-const API = process.env.PRICES_API || ''
+export type PlanSizeId = keyof typeof pricing.sizes
 
-function fmt(cents: number | null | undefined): string | null {
-  if (cents == null || Number.isNaN(cents)) return null
-  return '$' + (cents / 100).toFixed(2)
-}
-function parseCents(d: any): number {
-  const n = parseFloat(String(d).replace(/[^0-9.]/g, ''))
-  return Number.isNaN(n) ? 0 : Math.round(n * 100)
+export function formatPrice(cents: number): string {
+  return `$${(cents / 100).toFixed(2)}`
 }
 
-export async function getPricedCatalog() {
-  let live: any = null
-  try {
-    if (!API) throw new Error('catalog-authoritative')
-    const res = await fetch(API, { next: { revalidate: 600 } })
-    if (res.ok) live = await res.json()
-  } catch {
-    live = null
-  }
-
-  const apply = (grp: 'sovereign' | 'micro') =>
-    (catalog as any)[grp].map((b: any) => {
-      const prices: Record<string, string> = { ...b.prices }
-      const amt = live && live[grp] ? live[grp][b.key] : null
-      if (amt) {
-        for (const t of ['1', '2', '3']) {
-          const f = fmt(amt[t])
-          if (f) prices[t] = f
-        }
-      }
-      // yearly = live amount, else 10x the monthly (2 months free convention)
-      const amtY = live && live[grp + '_yearly'] ? live[grp + '_yearly'][b.key] : null
-      const prices_yearly: Record<string, string> = {}
-      for (const t of ['1', '2', '3']) {
-        prices_yearly[t] = (amtY && amtY[t] != null) ? (fmt(amtY[t]) as string) : (fmt(parseCents(prices[t]) * 10) as string)
-      }
-      return { ...b, prices, prices_yearly }
-    })
+// One customer-facing product with three sizes. The daily Stripe parity job
+// updates data/pricing.json, so every active WOPR page reads the same amounts.
+export async function getPlanPricing() {
+  const byTier = Object.values(pricing.sizes).reduce(
+    (out, size) => {
+      const key = size.tier === 't1' ? '1' : size.tier === 't2' ? '2' : '3'
+      out.monthly[key] = formatPrice(size.monthly)
+      out.yearly[key] = formatPrice(size.yearly)
+      return out
+    },
+    {
+      monthly: {} as Record<string, string>,
+      yearly: {} as Record<string, string>,
+    },
+  )
 
   return {
-    tiers: (catalog as any).tiers,
-    roles: (catalog as any).roles,
-    sovereign: apply('sovereign'),
-    micro: apply('micro'),
-    live: !!live,
+    product: pricing.product,
+    backendProductKey: pricing.backend_product_key,
+    sizes: pricing.sizes,
+    ...byTier,
   }
 }

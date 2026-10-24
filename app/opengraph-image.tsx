@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og'
 
-export const alt = 'WOPR Systems — private cloud and managed sovereign infrastructure'
+export const alt = 'WOPR Systems — your own private cloud, set up and looked after for you'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -22,7 +22,7 @@ export default function OpenGraphImage() {
         }}
       >
         <div style={{ color: '#00ff41', fontSize: 26, letterSpacing: 8 }}>
-          PRIVATE CLOUD · MANAGED INFRASTRUCTURE
+          YOUR OWN PRIVATE CLOUD · WE LOOK AFTER IT
         </div>
         <div style={{ display: 'flex', fontSize: 88, fontWeight: 700, marginTop: 34 }}>
           WOPR<span style={{ color: '#00ff41' }}>.SYSTEMS</span>
